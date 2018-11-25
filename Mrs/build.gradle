@@ -19,6 +19,9 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+def defaultEncoding = 'Shift_JIS'
+[compileJava, compileTestJava]*.options*.encoding = defaultEncoding
+
 repositories {
 	mavenCentral()
 }
