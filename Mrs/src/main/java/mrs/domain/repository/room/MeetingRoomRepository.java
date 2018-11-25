@@ -7,6 +7,4 @@ import mrs.domain.model.MeetingRoom;
 
 @Repository
 public interface MeetingRoomRepository extends JpaRepository<MeetingRoom, Integer> {
-
-	MeetingRoom findOne(Integer roomId);
 }
