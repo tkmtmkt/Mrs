@@ -1,0 +1,13 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    hostname: psotgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: mrs
+      POSTGRES_PASSWORD: mrs
+    volumes:
+      - "./data:/var/lib/postgresql/data"
+      - ".:/Mrs"
