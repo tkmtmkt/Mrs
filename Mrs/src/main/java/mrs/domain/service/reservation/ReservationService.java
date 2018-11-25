@@ -8,6 +8,7 @@ import mrs.domain.repository.reservation.ReservationRepository;
 import mrs.domain.repository.room.ReservableRoomRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.method.P;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -51,6 +52,12 @@ public class ReservationService {
 	}
 
 	public Reservation findOne(Integer reservationId) {
-		return reservationRepository.findOne(reservationId);
+		// 検索条件をエンティティにセット
+		Reservation probe = new Reservation();
+		probe.setReservationId(reservationId);
+
+		// 検索条件からExampleインスタンスを生成
+		Example<Reservation> example = Example.of(probe);
+		return reservationRepository.findOne(example).get();
 	}
 }
